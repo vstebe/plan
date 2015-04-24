@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <title>Distance et plans</title>
+
+  <meta charset="utf-8" />
+
+
+  <script src="jquery-1.10.2.js"></script>
+
+  <script type="text/javascript" src="fabric.js"></script>
+  <script type="text/javascript" src="pathfinding.js"></script>
+  <script type="text/javascript" src="plan.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      width: 80%;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    canvas {
+      width:auto;
+      height:500px;
+    }
+
+    .tabContent {
+      margin-top: 10px;
+    }
+    
+    .openSave {
+        text-align:right;
+        margin-bottom:10px;
+    }
+    .openSave select {
+        margin-left:30px;
+        width:200px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Plan</div>
+    <div class="panel-body">
+        <div class="openSave">
+            <button id="btnSave" class="btn btn-default">Enregistrer</button>
+            <select id="openSelect" class="form-control" style="display:inline">
+                
+            </select>
+            <button id="btnRefreshList" class="glyphicon glyphicon-refresh"></button>
+        </div>
+      <ul class="nav nav-tabs">
+        <li id="tabPlanMaking" role="presentation" class="active"><a href="#">Editer les pièces</a></li>
+        <li id="tabDoors" role="presentation"><a href="#">Editer les portes</a></li>
+        <li id="tabDistance" role="presentation"><a href="#">Calcul de chemin</a></li>
+      </ul>
+      <div id="tabPlanMakingContent" class="tabContent">
+        <p>Vous pouvez ajouter et supprimer des pièces. Pensez à les coller pour ajouter des portes par la suite.</p>
+        <button id="btnAddPiece" type="submit" class="btn btn-default">Ajouter une pièce</button>
+        <button id="btnDeletePiece" type="submit" class="btn btn-default">Supprimer</button>
+      </div>
+      <div id="tabDoorsContent" class="tabContent" style="display:none">
+        <p>Vous pouvez ajouter et supprimer des portes. Sélectionnez deux pièces (à la souris ou avec Maj.) et cliquez sur ajouter.</p>
+        <button id="btnAddDoor" type="submit" class="btn btn-default">Ajouter une porte</button>
+        <button id="btnDeleteDoor" type="submit" class="btn btn-default">Supprimer</button>
+      </div>
+      <div id="tabDistanceContent" class="tabContent" style="display:none">
+        <p>Déplacez les points A et B pour calculer le chemin</p>
+        <button id="btnDistance" type="submit" class="btn btn-default">Calcul du chemin</button>
+          <label>
+            <input id="boxDijPathfinding" type="checkbox" checked="checked"> Le moins de portes possible
+          </label>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="canvas">
+    Your browser does not support canvas tag!
+  </canvas>
+
+
+
+
+</body>
+
+</html>
